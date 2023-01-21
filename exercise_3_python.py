@@ -34,6 +34,7 @@ class Buku:
   def __init__(self, judul, penulis):
     self.judul = judul
     self.penulis = penulis
+    self.harga = 50_000
   
   def view(self):
     return f"Judul Buku: {self.judul}, Penulis: {self.penulis}"
