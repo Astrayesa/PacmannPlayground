@@ -1,0 +1,1 @@
+![Diagram Ganjil Genap]("diagram_ganjil_genap.png")
