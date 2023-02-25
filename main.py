@@ -1,5 +1,4 @@
 from bis import Bis
-import numpy
 
 bis_utama = Bis(10, 0, 10_000)
 print("Selamat datang di sistem bis terotomasi")
