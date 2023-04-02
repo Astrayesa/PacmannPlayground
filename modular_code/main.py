@@ -1,6 +1,7 @@
 import kelas
 
 def main():
+    kelas.load_data()
     while(True):
         menu()
         menu_inp = int( input("Masukan pilihan anda: ") )
@@ -45,6 +46,7 @@ def main():
             kelas.print_list_siswa()
 
         elif menu_inp == 5:
+            kelas.save_data()
             print("Terimakasih sudah menggunakan program. Bye!")
             break
 
