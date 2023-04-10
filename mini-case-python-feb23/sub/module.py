@@ -1,3 +1,4 @@
+import sqlite3
 # modul.py
 data_bis = {
     "penumpang": [],
@@ -35,6 +36,25 @@ def scan_out(data_bis, nama_penumpang):
     print(f"Penumpang dengan nama {nama_penumpang} tidak ditemukan")
     return False
   
+  # db insert
+  conn = sqlite3.connect("siswa.db")
+  cursor = conn.cursor()
+
+  sql_insert = f"""
+  INSERT INTO siswa (nama, jenis_kelamin, km_naik, km_turun, biaya_per_km) VALUES
+  (
+    "{data_bis["penumpang"][idx][0]}", 
+    "{data_bis["penumpang"][idx][1]}", 
+    {data_bis["penumpang"][idx][2]}, 
+    {data_bis["kilometer_perjalanan"]},
+    {data_bis["biaya_per_km"]}
+    )
+  """
+
+  cursor.execute(sql_insert)
+
+  conn.commit()
+
   km_perjalanan_penumpang = data_bis["kilometer_perjalanan"] - data_bis["penumpang"][idx][2] # kilometer sekarang - kilometer saat naik
   biaya_penumpang = data_bis["biaya_per_km"] * km_perjalanan_penumpang
   print(f"Kamu perlu membayar sebesar {biaya_penumpang} setelah menempuh perjalanan sejauh {km_perjalanan_penumpang}")
